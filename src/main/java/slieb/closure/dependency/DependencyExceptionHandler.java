@@ -1,4 +1,4 @@
-package slieb.closure.core.general;
+package slieb.closure.dependency;
 
 
 import java.util.Collection;

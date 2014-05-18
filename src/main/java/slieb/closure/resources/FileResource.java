@@ -1,4 +1,4 @@
-package slieb.closure.core.general;
+package slieb.closure.resources;
 
 
 import javax.annotation.Nonnull;
@@ -25,5 +25,22 @@ public class FileResource implements Resource {
     @Nonnull
     public FileReader getReader() throws IOException {
         return new FileReader(file);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FileResource that = (FileResource) o;
+
+        if (!file.equals(that.file)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return file.hashCode();
     }
 }

@@ -1,10 +1,10 @@
-package slieb.closure.core.javascript;
+package slieb.closure.dependency.javascript;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
-import slieb.closure.core.general.StringResource;
+import slieb.closure.resources.StringResource;
 
 import static org.junit.Assert.assertTrue;
 
@@ -45,7 +45,7 @@ public class ClosureDependencyParserTest {
                 new StringResource(new StringBuilder()
                         .append("goog.base = function () {};")
                         .toString()));
-        assertTrue(node.getBase());
+        assertTrue(node.isBase());
     }
 
     @Test

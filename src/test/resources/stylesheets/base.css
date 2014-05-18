@@ -1,0 +1,7 @@
+@provide base-css;
+
+/* @require does-not-exit */
+body, html {
+  background: white;
+  color: black;
+}

@@ -1,0 +1,17 @@
+
+@provide less-example;
+@require 'base-css';
+
+/** comments */
+.rule {
+  background: red;
+}
+
+// other comment @require does-not-exist;
+body {
+  background: red;
+}
+
+@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+  background: red;
+}

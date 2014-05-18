@@ -5,6 +5,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import slieb.closure.dependency.DependencyNode;
+import slieb.closure.dependency.DependencyParser;
+import slieb.closure.dependency.DependencyScanner;
+import slieb.closure.dependency.DependencyTree;
+import slieb.closure.resources.Resource;
+import slieb.closure.resources.ResourceProvider;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
@@ -42,7 +48,8 @@ public class DependencyScannerTest {
 
     @Test
     public void testScan() throws Throwable {
-        when(mockResourceProvider.getResources()).thenReturn(newArrayList(mockResourceA, mockResourceB, mockResourceC));
+        Iterable<Resource> resources = newArrayList(mockResourceA, mockResourceB, mockResourceC);
+        when(mockResourceProvider.getResources()).thenReturn(resources);
         final DependencyTree dependencyTree = scanner.scan();
         assertEquals(mockNodeA, dependencyTree.getProviderNode("nodeA"));
         assertEquals(mockNodeB, dependencyTree.getProviderNode("nodeB"));

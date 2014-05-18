@@ -1,5 +1,7 @@
-package slieb.closure.core.general;
+package slieb.closure.dependency;
 
+
+import slieb.closure.resources.Resource;
 
 import javax.annotation.Nonnull;
 

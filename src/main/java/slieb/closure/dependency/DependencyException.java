@@ -1,4 +1,4 @@
-package slieb.closure.core.general;
+package slieb.closure.dependency;
 
 
 public class DependencyException extends Exception {

@@ -1,12 +1,12 @@
-package slieb.closure.core.javascript;
+package slieb.closure.dependency.javascript;
 
 
 import com.google.javascript.rhino.head.Node;
 import com.google.javascript.rhino.head.Parser;
 import com.google.javascript.rhino.head.ast.*;
-import slieb.closure.core.general.DependencyException;
-import slieb.closure.core.general.DependencyParser;
-import slieb.closure.core.general.Resource;
+import slieb.closure.dependency.DependencyException;
+import slieb.closure.dependency.DependencyParser;
+import slieb.closure.resources.Resource;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -18,9 +18,10 @@ public class ClosureDependencyParser implements DependencyParser {
     @Override
     public ClosureDependencyNode parse(@Nonnull Resource resource) throws DependencyException {
         try {
-            ClosureDependencyNode.Builder builder = new ClosureDependencyNode.Builder();
-            Reader reader = resource.getReader();
-            Parser parser = new Parser();
+            final ClosureDependencyNode.Builder builder =
+                    new ClosureDependencyNode.Builder(resource);
+            final Reader reader = resource.getReader();
+            final Parser parser = new Parser();
             visit(builder, parser.parse(reader, "resource", 0).getFirstChild());
             reader.close();
             return builder.build();
@@ -124,7 +125,7 @@ public class ClosureDependencyParser implements DependencyParser {
             visit(builder, node.getNext());
         }
 
-        if (!builder.getIsBase()) {
+        if (!builder.isBase) {
 
             if (node instanceof ExpressionStatement) {
                 visit(builder, ((ExpressionStatement) node).getExpression());

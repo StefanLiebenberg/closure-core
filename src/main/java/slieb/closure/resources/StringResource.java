@@ -1,4 +1,4 @@
-package slieb.closure.core.general;
+package slieb.closure.resources;
 
 
 import javax.annotation.Nonnull;
@@ -20,7 +20,25 @@ public class StringResource implements Resource {
     }
 
     @Override
+    @Nonnull
     public StringReader getReader() {
         return new StringReader(content);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        StringResource that = (StringResource) o;
+
+        if (!content.equals(that.content)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return content.hashCode();
     }
 }

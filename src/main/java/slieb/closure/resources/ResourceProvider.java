@@ -1,4 +1,4 @@
-package slieb.closure.core.general;
+package slieb.closure.resources;
 
 
 import java.io.IOException;

@@ -1,5 +1,8 @@
-package slieb.closure.core.general;
+package slieb.closure.dependency;
 
+
+import slieb.closure.resources.Resource;
+import slieb.closure.resources.ResourceProvider;
 
 import java.io.IOException;
 
